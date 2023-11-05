@@ -1,0 +1,17 @@
+FROM python:3.6
+
+WORKDIR /products-api
+
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+COPY . .
+
+EXPOSE 8000
+
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+
+
+# This Dockerfile will build a Docker image that contains Python 3.6 and all of the required Python packages for your Django project.
+#  It will also expose port 8000, which is the port that Django uses by default.
+
